@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    ##不要想注册中心注册自己
+    register-with-eureka: false
+    ## 表示不去检索其他的服务，因为服务注册中心本身的职责就是维护服务实例，它也不需要去检索其他服务
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+  server:
+    ## 是否开启自我保护，eurekade 的自我保护机制
+    enable-self-preservation: false
